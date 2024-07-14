@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage';
 import HelloPage from './pages/HelloPage';
 import RegisterPage from './pages/RegisterPage';
 import HomePage from './pages/HomePage'; // Import HomePage
+import MapPage from './pages/MapPage'; // Import MapPage
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/hello" element={<HelloPage />} />
                 <Route path="/register" element={<RegisterPage />} />
+                <Route path="/map" element={<MapPage />} /> {/* Add MapPage route */}
             </Routes>
         </Router>
     );
