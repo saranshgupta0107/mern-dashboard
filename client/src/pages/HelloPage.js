@@ -2,10 +2,12 @@
 import React, { useState } from 'react';
 import { Button, Container, Typography, Box } from '@mui/material';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const HelloPage = () => {
     const [file, setFile] = useState(null);
     const [message, setMessage] = useState('');
+    const navigate = useNavigate(); // Initialize useNavigate
 
     const handleFileChange = (e) => {
         setFile(e.target.files[0]);
@@ -30,6 +32,10 @@ const HelloPage = () => {
         } catch (error) {
             setMessage('Error uploading file');
         }
+    };
+
+    const handleMap = () => {
+        navigate('/map'); // Navigate to the map page
     };
 
     return (
@@ -58,6 +64,14 @@ const HelloPage = () => {
                     Upload CSV
                 </Button>
                 {message && <Typography variant="body1" color="textSecondary" style={{ marginTop: '20px' }}>{message}</Typography>}
+                <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={handleMap}
+                    sx={{ mt: 2, width: 200 }} // Add margin top to separate buttons
+                >
+                    Map
+                </Button>
             </Box>
         </Container>
     );
