@@ -19,7 +19,7 @@ function MapPage() {
         };
 
         const script = document.createElement('script');
-        script.src = "https://apis.mappls.com/advancedmaps/api/3a831df562ea24a104e7d56037decbc2/map_sdk?layer=vector&v=3.0&callback=initMap";
+        script.src = "https://apis.mappls.com/advancedmaps/api/<token>/map_sdk?layer=vector&v=3.0&callback=initMap";
         script.defer = true;
         script.async = true;
         script.onload = () => initMap();
