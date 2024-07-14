@@ -1,6 +1,6 @@
 // src/pages/LoginPage.js
 import React, { useState } from 'react';
-import { Button, TextField, Container, Typography, Box, Alert } from '@mui/material';
+import { Button, TextField, Container, Typography, Box, Alert, AppBar, Toolbar, CssBaseline } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -22,45 +22,55 @@ const LoginPage = () => {
     };
 
     return (
-        <Container maxWidth="sm">
-            <Box
-                display="flex"
-                flexDirection="column"
-                alignItems="center"
-                justifyContent="center"
-                height="100vh"
-            >
-                <Typography variant="h4" component="h1" gutterBottom>
-                    Login
-                </Typography>
-                {error && <Alert severity="error">{error}</Alert>}
-                <TextField
-                    label="Username"
-                    variant="outlined"
-                    margin="normal"
-                    fullWidth
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-                <TextField
-                    label="Password"
-                    variant="outlined"
-                    margin="normal"
-                    type="password"
-                    fullWidth
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleLogin}
-                    style={{ marginTop: '16px' }}
+        <>
+            <CssBaseline />
+            <AppBar position="static">
+                <Toolbar>
+                    <Typography variant="h6" style={{ flexGrow: 1 }}>
+                        Jio Platforms Limited
+                    </Typography>
+                </Toolbar>
+            </AppBar>
+            <Container maxWidth="sm">
+                <Box
+                    display="flex"
+                    flexDirection="column"
+                    alignItems="center"
+                    justifyContent="center"
+                    height="100vh"
                 >
-                    Login
-                </Button>
-            </Box>
-        </Container>
+                    <Typography variant="h4" component="h1" gutterBottom>
+                        Login
+                    </Typography>
+                    {error && <Alert severity="error">{error}</Alert>}
+                    <TextField
+                        label="Username"
+                        variant="outlined"
+                        margin="normal"
+                        fullWidth
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                    <TextField
+                        label="Password"
+                        variant="outlined"
+                        margin="normal"
+                        type="password"
+                        fullWidth
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={handleLogin}
+                        style={{ marginTop: '16px' }}
+                    >
+                        Login
+                    </Button>
+                </Box>
+            </Container>
+        </>
     );
 };
 
