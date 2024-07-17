@@ -14,12 +14,19 @@ const HomePage = () => {
     };
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
+        <Box sx={{ flexGrow: 1, height: '100vh', bgcolor: '#A0B9F9' }}> {/* Set background color to blue */}
+            <AppBar position="static" sx={{ bgcolor: 'white', color: 'black' }}> {/* Set navbar color to white */}
                 <Toolbar>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        Jio Platforms Limited
-                    </Typography>
+                <Box display="flex" alignItems="center">
+                        <img 
+                            src={`${process.env.PUBLIC_URL}/Jio-Logo.jpg`} 
+                            alt="Jio Logo" 
+                            style={{ width: 40, marginRight: 16 }} // Adjust the width to fit the navbar
+                        />
+                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                            Jio Platforms Limited
+                        </Typography>
+                    </Box>
                 </Toolbar>
             </AppBar>
             <Container maxWidth="sm" sx={{ mt: 4 }}>
@@ -37,7 +44,7 @@ const HomePage = () => {
                     </Typography>
                     <Button
                         variant="contained"
-                        color="primary"
+                        color="secondary"
                         onClick={handleLogin}
                         sx={{ mb: 2, width: 200 }}
                     >
