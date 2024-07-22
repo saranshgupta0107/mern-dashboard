@@ -38,44 +38,67 @@ const LoginPage = () => {
                         </Box>
                     </Toolbar>
                 </AppBar>
-                <Container maxWidth="sm">
+                <Container maxWidth="lg" sx={{ mt: 4 }}> {/* Adjust the maxWidth to lg for larger container */}
                     <Box
-                        display="flex"
-                        flexDirection="column"
-                        alignItems="center"
-                        justifyContent="center"
-                        height="100vh"
+                        sx={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            minHeight: '80vh',
+                        }}
                     >
-                        <Typography variant="h4" component="h1" gutterBottom>
-                            
-                            Login
-                        </Typography>
-                        {error && <Alert severity="error">{error}</Alert>}
-                        <TextField
-                            label="Username"
-                            variant="outlined"
-                            margin="normal"
-                            fullWidth
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                        />
-                        <TextField
-                            label="Password"
-                            variant="outlined"
-                            margin="normal"
-                            type="password"
-                            fullWidth
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                        <Button
-                            variant="contained"
-                            color="secondary"
-                            onClick={handleLogin}
-                            style={{ marginTop: '16px' }}
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'flex-start',
+                                justifyContent: 'center',
+                                width: '50%',
+                            }}
                         >
-                            Login
-                        </Button>
+                            <Typography variant="h4" component="h1" gutterBottom>
+                                Login
+                            </Typography>
+                            {error && <Alert severity="error">{error}</Alert>}
+                            <TextField
+                                label="Username"
+                                variant="outlined"
+                                margin="normal"
+                                fullWidth
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
+                            <TextField
+                                label="Password"
+                                variant="outlined"
+                                margin="normal"
+                                type="password"
+                                fullWidth
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                            <Button
+                                variant="contained"
+                                color="secondary"
+                                onClick={handleLogin}
+                                sx={{ mt: 2 }}
+                            >
+                                Login
+                            </Button>
+                        </Box>
+                        <Box
+                            sx={{
+                                width: '50%',
+                                display: 'flex',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            <img 
+                                src={`${process.env.PUBLIC_URL}/right_side_image.png`} 
+                                alt="Welcome" 
+                                style={{ maxWidth: '100%', height: 'auto' }} // Adjust the image size
+                            />
+                        </Box>
                     </Box>
                 </Container>
             </Box>
