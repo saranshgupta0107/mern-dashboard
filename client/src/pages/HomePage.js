@@ -17,7 +17,7 @@ const HomePage = () => {
         <Box sx={{ flexGrow: 1, height: '100vh', bgcolor: '#A0B9F9' }}> {/* Set background color to blue */}
             <AppBar position="static" sx={{ bgcolor: 'white', color: 'black' }}> {/* Set navbar color to white */}
                 <Toolbar>
-                <Box display="flex" alignItems="center">
+                    <Box display="flex" alignItems="center">
                         <img 
                             src={`${process.env.PUBLIC_URL}/Jio-Logo.jpg`} 
                             alt="Jio Logo" 
@@ -29,35 +29,57 @@ const HomePage = () => {
                     </Box>
                 </Toolbar>
             </AppBar>
-            <Container maxWidth="sm" sx={{ mt: 4 }}>
+            <Container maxWidth="lg" sx={{ mt: 4 }}> {/* Adjust the maxWidth to lg for larger container */}
                 <Box
                     sx={{
                         display: 'flex',
-                        flexDirection: 'column',
+                        justifyContent: 'space-between',
                         alignItems: 'center',
-                        justifyContent: 'center',
                         minHeight: '80vh',
                     }}
                 >
-                    <Typography variant="h3" component="h1" gutterBottom sx={{ mb: 4 }}>
-                        Welcome to Jio 
-                    </Typography>
-                    <Button
-                        variant="contained"
-                        color="secondary"
-                        onClick={handleLogin}
-                        sx={{ mb: 2, width: 200 }}
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'flex-start',
+                            justifyContent: 'center',
+                            width: '50%',
+                        }}
                     >
-                        Login
-                    </Button>
-                    <Button
-                        variant="contained"
-                        color="secondary"
-                        onClick={handleRegister}
-                        sx={{ mb: 2, width: 200 }}
+                        <Typography variant="h3" component="h1" gutterBottom sx={{ mb: 4 }}>
+                            Welcome to Jio 
+                        </Typography>
+                        <Button
+                            variant="contained"
+                            color="secondary"
+                            onClick={handleLogin}
+                            sx={{ mb: 2, width: 200 }}
+                        >
+                            Login
+                        </Button>
+                        <Button
+                            variant="contained"
+                            color="secondary"
+                            onClick={handleRegister}
+                            sx={{ mb: 2, width: 200 }}
+                        >
+                            Register
+                        </Button>
+                    </Box>
+                    <Box
+                        sx={{
+                            width: '50%',
+                            display: 'flex',
+                            justifyContent: 'center',
+                        }}
                     >
-                        Register
-                    </Button>
+                        <img 
+                            src={`${process.env.PUBLIC_URL}/right_side_image.png`} 
+                            alt="Welcome" 
+                            style={{ maxWidth: '100%', height: 'auto' }} // Adjust the image size
+                        />
+                    </Box>
                 </Box>
             </Container>
         </Box>
