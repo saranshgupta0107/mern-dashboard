@@ -1,6 +1,5 @@
-// src/pages/RegisterPage.js
 import React, { useState } from 'react';
-import { Button, TextField, Container, Typography, Box, Alert } from '@mui/material';
+import { Button, TextField, Container, Typography, Box, Alert, AppBar, Toolbar, CssBaseline } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -26,46 +25,89 @@ const RegisterPage = () => {
     };
 
     return (
-        <Container maxWidth="sm">
-            <Box
-                display="flex"
-                flexDirection="column"
-                alignItems="center"
-                justifyContent="center"
-                height="100vh"
-            >
-                <Typography variant="h4" component="h1" gutterBottom>
-                    Register
-                </Typography>
-                {error && <Alert severity="error">{error}</Alert>}
-                {success && <Alert severity="success">{success}</Alert>}
-                <TextField
-                    label="Username"
-                    variant="outlined"
-                    margin="normal"
-                    fullWidth
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-                <TextField
-                    label="Password"
-                    variant="outlined"
-                    margin="normal"
-                    type="password"
-                    fullWidth
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleRegister}
-                    style={{ marginTop: '16px' }}
-                >
-                    Register
-                </Button>
+        <>
+            <CssBaseline />
+            <Box sx={{ flexGrow: 1, height: '100vh', bgcolor: '#A0B9F9' }}> {/* Set background color to blue */}
+                <AppBar position="static" sx={{ bgcolor: 'white', color: 'black' }}> {/* Set navbar color to white */}
+                    <Toolbar>
+                        <Box display="flex" alignItems="center">
+                            <img 
+                                src={`${process.env.PUBLIC_URL}/Jio-Logo.jpg`} 
+                                alt="Jio Logo" 
+                                style={{ width: 40, marginRight: 16 }} // Adjust the width to fit the navbar
+                            />
+                            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                                Jio Platforms Limited
+                            </Typography>
+                        </Box>
+                    </Toolbar>
+                </AppBar>
+                <Container maxWidth="lg" sx={{ mt: 4 }}> {/* Adjust the maxWidth to lg for larger container */}
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            minHeight: '80vh',
+                        }}
+                    >
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'flex-start',
+                                justifyContent: 'center',
+                                width: '50%',
+                            }}
+                        >
+                            <Typography variant="h4" component="h1" gutterBottom>
+                                Register
+                            </Typography>
+                            {error && <Alert severity="error">{error}</Alert>}
+                            {success && <Alert severity="success">{success}</Alert>}
+                            <TextField
+                                label="Username"
+                                variant="outlined"
+                                margin="normal"
+                                fullWidth
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
+                            <TextField
+                                label="Password"
+                                variant="outlined"
+                                margin="normal"
+                                type="password"
+                                fullWidth
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                onClick={handleRegister}
+                                sx={{ mt: 2 }}
+                            >
+                                Register
+                            </Button>
+                        </Box>
+                        <Box
+                            sx={{
+                                width: '50%',
+                                display: 'flex',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            <img 
+                                src={`${process.env.PUBLIC_URL}/right_side_image.png`} 
+                                alt="Welcome" 
+                                style={{ maxWidth: '100%', height: 'auto' }} // Adjust the image size
+                            />
+                        </Box>
+                    </Box>
+                </Container>
             </Box>
-        </Container>
+        </>
     );
 };
 
